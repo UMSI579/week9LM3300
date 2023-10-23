@@ -13,8 +13,9 @@ const store = configureStore({
   reducer: rootReducer, 
 });
 
+const Stack = createNativeStackNavigator();
+
 function Nav() {
-  const Stack = createNativeStackNavigator();
 
   return (
     <Provider store={store}>
