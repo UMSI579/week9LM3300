@@ -13,13 +13,12 @@ const initialState = {
   listItems: initListItems,
 }
 
-const addItem = (state, payload) => {
-  const { text, tags, key } = payload;
+const addItem = (state, text, tags) => {
   let { listItems } = state;
   let newListItems = listItems.concat({
     text: text,
-    key: key,
-    tags: tags
+    tags: tags, 
+    key: '' + Date.now()
   });
   return {
     ...state, 
@@ -54,7 +53,7 @@ function rootReducer(state=initialState, action) {
   const { type, payload } = action;
   switch (type) {
     case ADD_ITEM:
-      return addItem(state, payload); //.text, action.payload.tags);
+      return addItem(state, payload.text, action.payload.tags);
     case UPDATE_ITEM:
       return updateItem(state, payload.key, payload.text, payload.tags);
     case DELETE_ITEM:
