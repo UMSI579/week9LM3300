@@ -1,7 +1,8 @@
-import Nav from './Nav';
+import AppContainer from './AppContainer';
 
 export default function App() {
   return (
-    <Nav/>
+    <AppContainer/>
   );
 }
+
